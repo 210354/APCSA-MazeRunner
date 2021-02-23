@@ -292,7 +292,7 @@ public class Maze {
         solution[1][2] = '0';
         solution[3][7] = '0';
         solution[3][12] = '0';
-        solution[6][4] = '0';
+        solution[6][4] = '0'; 
         solution[15][4] = '0';
         solution[9][10] = '0';
         solution[13][17] = '0';
