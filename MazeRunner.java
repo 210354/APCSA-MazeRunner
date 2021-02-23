@@ -7,6 +7,8 @@ public class MazeRunner {
 
     public static void main(String[] args) {
         intro(); 
+        userMover();
+        myMap.printMap();
     }
 
     public static void intro() {
@@ -24,30 +26,32 @@ public class MazeRunner {
 
         System.out.println("Where would you like to move? (R, L, U, D)"); 
         String userChoice = input.nextLine(); 
-/*
-        if myMap.canIMoveRight("R");= true{
-            myMap.MoveRight(); 
+
+
+
+        if (myMap.canIMoveRight() == true){
+            myMap.moveRight(); 
         }
 
-        if myMap.canIMoveLeft("L"); = true{
-            myMap.MoveLeft(); 
+        if (myMap.canIMoveLeft() == true){
+            myMap.moveLeft(); 
         }
 
-        if myMap.canIMoveUp("U"); = true {
-            myMap.MoveUp(); 
+        if (myMap.canIMoveUp() == true) {
+            myMap.moveUp(); 
         }
 
-        if myMap.canIMoveDown("D"); = true{
-            myMap.MoveDown(); 
+        if (myMap.canIMoveDown() == true) {
+            myMap.moveDown(); 
         }
 
-        */
+        
 
         String direction = ""; //use this for now
         return direction; 
     
     }
-
+/*
 
     public static void movesMessage(moves) {
         //print message after certain number of moves
@@ -58,7 +62,7 @@ public class MazeRunner {
 
     }
 
-    
+    */
 
 //This method is used to make it easier for the user to read what is in the console 
     public static void dashedLines() {
