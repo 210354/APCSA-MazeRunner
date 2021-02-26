@@ -7,8 +7,10 @@ public class MazeRunner {
 
     public static void main(String[] args) {
         intro(); 
+        while(true){
         userMover();
         myMap.printMap();
+    }
     }
 
     public static void intro() {
