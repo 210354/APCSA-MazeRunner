@@ -4,17 +4,13 @@ public class MazeRunner {
     static Maze myMap = new Maze(); 
     static Scanner input = new Scanner(System.in);
 
+
     public static void main(String[] args) {
         intro(); 
-<<<<<<< HEAD
         while(true){
         userMover(); 
-        myMap.printMap(); 
+        myMap.printMap();  
     }
-=======
-        userMover(); 
-        myMap.printMap(); 
->>>>>>> 40efbab7c48d88572e749f3417c779ac0ddda45a
     }
 
     public static void intro() {
@@ -32,7 +28,6 @@ public class MazeRunner {
 
         System.out.println("Where would you like to move? (R, L, U, D)"); 
         String userChoice = input.nextLine(); 
-<<<<<<< HEAD
 
 
 
@@ -54,34 +49,6 @@ public class MazeRunner {
 
         
 
-=======
-
-        if (userChoice.equals("R") || userChoice.equals("L") || userChoice.equals("U") || userChoice.equals("D")) {
-            if (myMap.canIMoveRight() == true){
-                myMap.moveRight(); 
-
-                
-            }
-    
-            if (myMap.canIMoveLeft() == true){
-                myMap.moveLeft(); 
-            }
-    
-            if (myMap.canIMoveUp() == true) {
-                myMap.moveUp(); 
-            }
-    
-            if (myMap.canIMoveDown() == true){
-                myMap.moveDown(); 
-            }
-        }
-
-        else {
-            System.out.println("Your input isn't valid. "); 
-        }
-
-    
->>>>>>> 40efbab7c48d88572e749f3417c779ac0ddda45a
         String direction = ""; //use this for now
         return direction; 
     
