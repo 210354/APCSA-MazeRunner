@@ -9,7 +9,7 @@ public class MazeRunner {
         intro(); 
         while(true){
         userMover();
-        myMap.printMap();
+        myMap.printMap(); 
     }
     }
 
