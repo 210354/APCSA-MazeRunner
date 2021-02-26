@@ -4,13 +4,35 @@ public class MazeRunner {
     static Maze myMap = new Maze(); 
     static Scanner input = new Scanner(System.in);
 
+    static int counter = 0; 
 
     public static void main(String[] args) {
-        intro(); 
-        while(true){
-        userMover(); 
-        myMap.printMap();  
+        intro();
+        
+        
+
+        while(myMap.didIWin() == false){
+            
+            System.out.println("Where would you like to move? (R, L, U, D)"); 
+            String user = input.nextLine();  
+
+        userMover(user); 
+        
+        if (myMap.didIWin() == false) {
+            myMap.printMap(); 
+            dashedLines();
+
+        }
+
+        counter++; 
+        System.out.println("This is how many moves you've already made: " + counter); 
+
+        movesMessage(counter);
+
     }
+
+        System.out.println("\nCongratulations, you made it out alive!"); 
+    
     }
 
     public static void intro() {
@@ -23,47 +45,51 @@ public class MazeRunner {
 
 
  
-    public static String userMover() {
+    public static String userMover(String userChoice) {
         //take in desired direction of move, and check if that direciton is valid and possilbe
 
-        System.out.println("Where would you like to move? (R, L, U, D)"); 
-        String userChoice = input.nextLine(); 
-
-
-
-        if (myMap.canIMoveRight() == true){
+        if (myMap.canIMoveRight() == true && userChoice.equals("R")){
             myMap.moveRight(); 
         }
 
-        if (myMap.canIMoveLeft() == true){
+        else if (myMap.canIMoveLeft() == true && userChoice.equals("L")){
             myMap.moveLeft(); 
         }
 
-        if (myMap.canIMoveUp() == true) {
+        else if (myMap.canIMoveUp() == true && userChoice.equals("U")) {
             myMap.moveUp(); 
         }
 
-        if (myMap.canIMoveDown() == true) {
+        else if (myMap.canIMoveDown() == true && userChoice.equals("D")) {
             myMap.moveDown(); 
         }
 
+
+        else {
+            System.out.println("There was an error. ");
+        }
         
 
         String direction = ""; //use this for now
         return direction; 
     
     }
-/*
 
-    public static void movesMessage(moves) {
+    public static void movesMessage(int moves) {
+
+        if (moves == 50) { 
+            System.out.println("Warning: You have made 50 moves, you have 50 remaining before the exit closes. ");
+
+        }
+
+        else if (moves == 75)
         //print message after certain number of moves
         //count moves 
     }
 
+    /*
     public static void navigatePit(direction) {
-
     }
-
     */
 
 //This method is used to make it easier for the user to read what is in the console 
