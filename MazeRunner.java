@@ -11,7 +11,7 @@ public class MazeRunner {
         
         
 
-        while(myMap.didIWin() == false){
+        while(myMap.didIWin() == false && counter < 100){
             
             System.out.println("Where would you like to move? (R, L, U, D)"); 
             String user = input.nextLine();  
@@ -31,7 +31,16 @@ public class MazeRunner {
 
     }
 
-        System.out.println("\nCongratulations, you made it out alive!"); 
+    if (counter < 100) {
+        System.out.println("\nCongratulations, you made it out alive! It took you " + counter + " moves to get out! "); 
+    }
+
+    else if (counter == 100) {
+        System.out.println("\nSorry, but you didn't escape in time - you lose!"); 
+
+    }
+
+
     
     }
 
@@ -82,7 +91,20 @@ public class MazeRunner {
 
         }
 
-        else if (moves == 75)
+        else if (moves == 75) {
+
+            System.out.println("Alert! You have made 75 moves, you only have 25 moves left to escape.");
+        }
+
+        else if (moves == 90) {
+            System.out.println("DANGER! You have made 90 moves, you only have 10 moves left to escape. ");
+
+        }
+
+        else if (moves == 100) {
+            System.out.println("Oh no! You took too long to escape, and now the maze exits. ");
+        }
+
         //print message after certain number of moves
         //count moves 
     }
