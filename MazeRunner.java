@@ -17,6 +17,11 @@ public class MazeRunner {
             
             navigatePit(user); 
             userMover(user); 
+
+            if (navigatePit(user) == false) {
+                myMap.didIWin() == true; 
+            }
+
         
         if (myMap.didIWin() == false) {
             myMap.printMap(); 
@@ -109,7 +114,7 @@ public class MazeRunner {
     }
 
     
-    public static void navigatePit(String direction) {
+    public static boolean navigatePit(String direction) {
        
         if (myMap.isThereAPit(direction) == true) {
 
@@ -118,6 +123,7 @@ public class MazeRunner {
      
             if (jump.equals("Y")) {
                 myMap.jumpOverPit(direction); 
+                return true;
 
             }
     
@@ -128,17 +134,22 @@ public class MazeRunner {
 
                 if (move.equals(direction)) {
                     System.out.println("You fell into a pit! The game will now terminate. ");
-
+                    return false; 
                 } 
+
+                return true; 
+
+                }
             }
 
+            return true; 
         }
 
 
 
         
 
-    }
+
     
 
 //This method is used to make it easier for the user to read what is in the console 
