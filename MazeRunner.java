@@ -5,18 +5,18 @@ public class MazeRunner {
     static Scanner input = new Scanner(System.in);
 
     static int counter = 0; 
+    static String user; //Asks the user what direction they want to move in 
 
     public static void main(String[] args) {
         intro();
-        
-        
 
-        while(myMap.didIWin() == false && counter < 100){
+        while(myMap.didIWin() == false && counter < 100) {
             
             System.out.println("Where would you like to move? (R, L, U, D)"); 
-            String user = input.nextLine();  
-
-        userMover(user); 
+            user = input.nextLine();  
+            
+            navigatePit(user); 
+            userMover(user); 
         
         if (myMap.didIWin() == false) {
             myMap.printMap(); 
@@ -92,7 +92,6 @@ public class MazeRunner {
         }
 
         else if (moves == 75) {
-
             System.out.println("Alert! You have made 75 moves, you only have 25 moves left to escape.");
         }
 
@@ -109,10 +108,38 @@ public class MazeRunner {
         //count moves 
     }
 
-    /*
-    public static void navigatePit(direction) {
+    
+    public static void navigatePit(String direction) {
+       
+        if (myMap.isThereAPit(direction) == true) {
+
+            System.out.println("Watch out! There's a pit ahead, jump it? (Y) or (N). ");
+            String jump = input.nextLine(); 
+     
+            if (jump.equals("Y")) {
+                myMap.jumpOverPit(direction); 
+
+            }
+    
+            else {
+                System.out.println("Where would you like to move? ");
+                String move = input.nextLine(); 
+                userMover(move); 
+
+                if (move.equals(direction)) {
+                    System.out.println("You fell into a pit! The game will now terminate. ");
+
+                } 
+            }
+
+        }
+
+
+
+        
+
     }
-    */
+    
 
 //This method is used to make it easier for the user to read what is in the console 
     public static void dashedLines() {
