@@ -10,17 +10,18 @@ public class MazeRunner {
     public static void main(String[] args) {
         intro();
 
+
         while(myMap.didIWin() == false && counter < 100) {
             
             System.out.println("Where would you like to move? (R, L, U, D)"); 
             user = input.nextLine();  
-            
-            navigatePit(user); 
-            userMover(user); 
 
             if (navigatePit(user) == false) {
-                myMap.didIWin() == true; 
+                break; 
             }
+
+            navigatePit(user); 
+            userMover(user); 
 
         
         if (myMap.didIWin() == false) {
@@ -34,9 +35,10 @@ public class MazeRunner {
 
         movesMessage(counter);
 
+
     }
 
-    if (counter < 100) {
+    if (counter < 100 && myMap.didIWin() == true) {
         System.out.println("\nCongratulations, you made it out alive! It took you " + counter + " moves to get out! "); 
     }
 
@@ -45,13 +47,24 @@ public class MazeRunner {
 
     }
 
+    System.out.println("\nWould you like to see the solution? (Y) or (N). ");
+    String revealSolution = input.nextLine();
+
+    if (revealSolution.equals("Y")) {
+        myMap.fillSolution(); 
+    }
+
+    else {
+        System.out.println("Thank you for playing Maze Runner!"); 
+    }
+
 
     
     }
 
     public static void intro() {
         System.out.println("\nWelcome to the Maze Runner game! Here is what your maze currently looks like.  "); 
-        System.out.println("The 'x' represents your current position and the '.' will turn into either walls ('-') or free space ('*')");
+        System.out.println("\nThe 'x' represents your current position and the '.' will turn into either walls ('-') or free space ('*')");
         myMap.printMap(); 
         dashedLines(); 
     }
@@ -76,11 +89,6 @@ public class MazeRunner {
 
         else if (myMap.canIMoveDown() == true && userChoice.equals("D")) {
             myMap.moveDown(); 
-        }
-
-
-        else {
-            System.out.println("There was an error. ");
         }
         
 
@@ -133,7 +141,7 @@ public class MazeRunner {
                 userMover(move); 
 
                 if (move.equals(direction)) {
-                    System.out.println("You fell into a pit! The game will now terminate. ");
+                    System.out.println("You fell into a pit! The game will now terminate. \n");
                     return false; 
                 } 
 
