@@ -194,7 +194,7 @@ public class Maze {
         move(1, 0);
     }
 
-    private void fillSolution() {
+    public void fillSolution() { //MADE IT TO PUBLIC 
         for (int i = 0; i < 6; i++) {
             solution[0][i] = '-';
         }
@@ -292,10 +292,10 @@ public class Maze {
         solution[1][2] = '0';
         solution[3][7] = '0';
         solution[3][12] = '0';
-        solution[6][4] = '0'; 
+        solution[6][4] = '0';
         solution[15][4] = '0';
         solution[9][10] = '0';
-        solution[13][17] = '0';
+        //solution[13][17] = '0';
         solution[13][15] = '0';
         solution[18][10] = '0';
     }
